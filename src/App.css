@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+#ans{
+  width: 500px;
+}
+#input{
+  padding: 10px;
+}
