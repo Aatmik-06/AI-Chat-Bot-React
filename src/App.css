@@ -51,10 +51,9 @@
 @media screen and (max-width: 800px) {
   #main{
     height: 100%;
-    width: 90%;
+    width: 100%;
   }
   #ans{
     width: 100%;
   }
-
 }
