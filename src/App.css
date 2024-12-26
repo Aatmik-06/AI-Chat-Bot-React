@@ -3,7 +3,9 @@
 @tailwind utilities;
 #ans{
   width: 500px;
+  background-color: rgb(76, 76, 76);
 }
 #input{
   padding: 10px;
+
 }
