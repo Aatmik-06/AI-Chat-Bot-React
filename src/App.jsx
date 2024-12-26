@@ -4,13 +4,11 @@ import './App.css'
 import ReactMarkdown from 'react-markdown';
 
 import React, { useState, useEffect, useRef } from "react";
-import { _vantaEffect } from 'vanta/dist/vanta.clouds.min';
-import CLOUDS from "vanta/dist/vanta.clouds.min"
+import Waves from "vanta/dist/vanta.waves.min"
 import * as THREE from "three";
 import { Container } from 'react-bootstrap';
 
-function App() {
-
+const App = () => {
 
   const [vantaEffect, setVantaEffect] = useState(0);
   const vantaRef = useRef(null);
@@ -18,16 +16,9 @@ function App() {
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
-        CLOUDS({
+        Waves({
           el: vantaRef.current,
-          THREE: THREE,
-          mouseControls: false,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200,
-          minWidth: 200,
-          scale: 1.0,
-          scaleMobile: 1.0,
+
         })
       );
     }
@@ -66,25 +57,24 @@ function App() {
   }
   return (
     <>
-    <Container  fluid  >
-      <div ref={vantaRef} style={{ height:"100%", width: "100%" }}>
+    <Container fluid  ref={vantaRef} id='cont'>
+    <div id='main'>
      <h1>AI Chat Bot</h1>
-     <div id='ans'>
-     <div  className="flex-1 overflow-y-auto mb-4 rounded-lg bg-white shadow-lg p-4 hide-scrollbar" >
     
-      <ReactMarkdown id="ans" className="overflow-auto hide-scrollbar items-center" >
+     <div id="ans"  className="flex-1 overflow-y-auto mb-4 rounded-lg shadow-lg p-4 hide-scrollbar" >
+      <ReactMarkdown  className="overflow-auto hide-scrollbar items-center" >
       {answer}
       </ReactMarkdown>
+     </div>
      
-     </div>
-     </div>
-     <textarea value={question} id='input' onChange={(e) => setQuestion(e.target.value)} placeholder="Ask anything..." ></textarea> <br /><br />
+     <textarea value={question} id='input'  onChange={(e) => setQuestion(e.target.value)} placeholder="Ask anything..." ></textarea> <br /><br />
     
      <div >
      <button onClick={ generatedanswer}>Generate answer</button>
      
      </div>
      </div>
+    
       </Container>
     </>
   )
