@@ -10,15 +10,18 @@ import { Container } from 'react-bootstrap';
 
 const App = () => {
 
+  // Created background effect
   const [vantaEffect, setVantaEffect] = useState(0);
   const vantaRef = useRef(null);
-
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
         Waves({
           el: vantaRef.current,
-
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
         })
       );
     }
@@ -29,11 +32,12 @@ const App = () => {
 
 
 
-
-
-
+  // Created state for question and answer
   const [question, setQuestion] = useState("");
+  const [displayquestion, setDisplayquestion] = useState("");
   const [answer, setAnswer]= useState("");
+
+  // Created function to generate answer
   async function generatedanswer() {
     setAnswer("Loading...")
     try {
@@ -47,9 +51,11 @@ const App = () => {
       });
       setAnswer(response['data']['candidates'][0]['content']['parts'][0]['text']);
       setQuestion("")
+      setDisplayquestion(question)
       if(setQuestion==""){
       setAnswer("")
     }
+    document.getElementById('question').style.display="block"
     } catch (error) {
       console.log(error);
       setAnswer("Sorry - Something went wrong. Please try again!");
@@ -59,18 +65,20 @@ const App = () => {
     <>
     <Container fluid  ref={vantaRef} id='cont'>
     <div id='main'>
-     <h1>AI Chat Bot</h1>
+     <h1>Genie AI Chatbot</h1>
     
      <div id="ans"  className="flex-1 overflow-y-auto mb-4 rounded-lg shadow-lg p-4 hide-scrollbar" >
+      <h3 style={{display:"none"}} id='question'> Question: {displayquestion} </h3>
       <ReactMarkdown  className="overflow-auto hide-scrollbar items-center" >
+          
       {answer}
       </ReactMarkdown>
      </div>
      
      <textarea value={question} id='input'  onChange={(e) => setQuestion(e.target.value)} placeholder="Ask anything..." ></textarea> <br /><br />
     
-     <div >
-     <button onClick={ generatedanswer}>Generate answer</button>
+     <div>
+     <button eventKey="1" onClick={generatedanswer}>Generate answer</button>
      
      </div>
      </div>
