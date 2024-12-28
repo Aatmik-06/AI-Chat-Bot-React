@@ -8,8 +8,9 @@
 }
 #ans{
   width: 800px;
-  height: 420px;
+  height: 400px;
   background-color: rgba(52, 73, 106, 0.286);
+  border-radius: 10px;
 }
 #input{
   padding: 10px;
@@ -25,29 +26,64 @@
   justify-content: center;
   height: 100vh;
   color: white;
+  
 }
 #main{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.849);
+  background-color: rgba(0, 0, 0, 0.822);
   padding: 20px;
-  button{
-    background-color: rgb(5, 129, 203);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;  
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  button:hover{
-    background-color: white;
-    color: rgb(5, 129, 203);
-    font-size: 16.5px;
-    padding: 9.5px;
-  }
+  border-radius: 10px;
+ 
+ /* Button */ 
+
+ .btn {
+  border: none;
+  width: 11em;
+  height: 3.2em;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: #3f3f3f;
+  cursor: pointer;
+  transition: all 450ms ease-in-out;
+}
+
+.sparkle {
+  fill: #AAAAAA;
+  transition: all 800ms ease;
+}
+
+.text {
+  font-weight: 600;
+  color: #AAAAAA;
+  font-size: large;
+}
+
+.btn:hover {
+  background: linear-gradient(0deg,#A47CF3,#683FEA);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+  inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+  0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+  0px 0px 180px 0px #9917FF;
+  transform: translateY(-2px);
+}
+
+.btn:hover .text {
+  color: white;
+}
+
+.btn:hover .sparkle {
+  fill: white;
+  transform: scale(1.2);
+} 
+
+
+ 
 }
 @media screen and (max-width: 800px) {
   #main{
