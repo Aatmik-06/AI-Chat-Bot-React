@@ -2,13 +2,11 @@ import './index.css'
 import axios from 'axios'
 import './App.css'
 import ReactMarkdown from 'react-markdown';
-import Spinner from 'react-bootstrap/Spinner';
+
 import React, { useState, useEffect, useRef } from "react";
 import Waves from "vanta/dist/vanta.waves.min"
 import { Container } from 'react-bootstrap';
-import { TailSpin } from "react-loader-spinner";
-import Loader from './Loader';
-import { LoaderUtils } from 'three';
+
 const App = () => {
 
   // Created background effect
@@ -77,19 +75,19 @@ const App = () => {
     <Container fluid  ref={vantaRef} id='cont'>
     <div id='main'>
      <h1>Genie AI Chatbot</h1>
-     
+     <div>
      <div id="ans"  className="flex-1 overflow-y-auto mb-4 rounded-lg shadow-lg p-4 hide-scrollbar" >
       <h3 style={{display:"none"}} id='question'> Question: {displayquestion} </h3>
       
-      <ReactMarkdown  className="overflow-auto hide-scrollbar items-center" id='mkd' >   
+      <ReactMarkdown  className="overflow-auto hide-scrollbar items-center">   
       
       {answer}
-      
+
       </ReactMarkdown>
      
      
      </div>
-     
+     </div>
      <textarea value={question} id='input'  onChange={(e) => setQuestion(e.target.value)} placeholder="Ask anything..." ></textarea> <br /><br />
     
      <div>

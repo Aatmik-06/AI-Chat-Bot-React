@@ -8,7 +8,7 @@
 }
 #ans{
   width: 800px;
-  height: 400px;
+  height:400px;
   background-color: rgba(52, 73, 106, 0.286);
   border-radius: 10px;
 }
@@ -52,15 +52,18 @@
   cursor: pointer;
   transition: all 450ms ease-in-out;
 }
+
 .sparkle {
   fill: #AAAAAA;
   transition: all 800ms ease;
 }
+
 .text {
   font-weight: 600;
   color: #AAAAAA;
   font-size: large;
 }
+
 .btn:hover {
   background: linear-gradient(0deg,#A47CF3,#683FEA);
   box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
@@ -69,13 +72,18 @@
   0px 0px 180px 0px #9917FF;
   transform: translateY(-2px);
 }
+
 .btn:hover .text {
   color: white;
 }
+
 .btn:hover .sparkle {
   fill: white;
   transform: scale(1.2);
 } 
+
+
+ 
 }
 @media screen and (max-width: 800px) {
   #main{
